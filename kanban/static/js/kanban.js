@@ -8,8 +8,14 @@ $(document).ready(function() {
       $.ajax({
           type: "GET",
           url: 'api/tasks/',
-          success:
+          success: function(result) {
              console.log("success"),
+             $box = $('<div>'),
+             $($box).append(result),
+        }
+        $('#allTasks').empty(),
+        $('#allTasks').append('<h2>All Tasks</h2>'),
+        $('#allTasks').append($box),
       });
   })
 });
