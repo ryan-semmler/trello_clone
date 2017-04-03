@@ -9,13 +9,13 @@ $(document).ready(function() {
           type: "GET",
           url: 'api/tasks/',
           success: function(result) {
-             console.log("success"),
-             $box = $('<div>'),
-             $($box).append(result),
+             console.log("success");
+             $box = $('<div>');
+             $($box).append(result);
            }
-        $('#allTasks').empty(),
-        $('#allTasks').append('<h2>All Tasks</h2>'),
-        $('#allTasks').append($box),
+        $('#allTasks').empty();
+        $('#allTasks').append('<h2>All Tasks</h2>');
+        $('#allTasks').append($box);
     });
   })
 });
