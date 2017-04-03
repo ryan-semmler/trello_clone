@@ -67,7 +67,7 @@ def new_task(request):
 
 def index(request):
     '''UI homepage'''
-    return render(request, "taks/index.html")
+    return render(request, "tasks/index.html")
 
 
 @api_view(['POST'])
