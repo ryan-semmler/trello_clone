@@ -12,10 +12,10 @@ $(document).ready(function() {
              console.log("success"),
              $box = $('<div>'),
              $($box).append(result),
-        }
         $('#allTasks').empty(),
         $('#allTasks').append('<h2>All Tasks</h2>'),
         $('#allTasks').append($box),
-      });
+      }
+    });
   })
 });
