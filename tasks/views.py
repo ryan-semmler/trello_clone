@@ -65,6 +65,11 @@ def new_task(request):
     return render(request, "tasks/create.html", {"task_form": new_task})
 
 
+def index(request):
+    '''UI homepage'''
+    return render(request, "taks/index.html")
+
+
 @api_view(['POST'])
 def add_task_to_DB(request, form_info):
     ''' sends form info to db as a new task'''
