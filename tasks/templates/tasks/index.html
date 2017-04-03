@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Kanban</title>
         {% load staticfiles %}
-        <link rel=stylesheet href= {% static  css/kanban.css %}>
+        <link rel=stylesheet href= {% static  'css/kanban.css' %}>
     </head>
     <body>
 
@@ -15,7 +15,7 @@
         <div id="addTask"><h2>Add Task</h2></div>
 
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type='text/javascript' src= {% static js/kanban.js %} </script>
+        <script type='text/javascript' src= {% static 'js/kanban.js' %} </script>
       </div>
     </body>
 </html>
