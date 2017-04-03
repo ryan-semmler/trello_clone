@@ -15,7 +15,6 @@ $(document).ready(function() {
         $('#allTasks').empty(),
         $('#allTasks').append('<h2>All Tasks</h2>'),
         $('#allTasks').append($box),
-      }
     });
   })
 });
