@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>Kanban</title>
-        <link rel=stylesheet href"css/kanban.css">
+        <link rel=stylesheet href= {% static  css/kanban.css %}>
     </head>
     <body>
-        
+
       <div class="container">
         <div id="allTasks"><h2>View All</h2></div>
         <div id="oneTask"></div>
@@ -14,7 +14,7 @@
         <div id="addTask"><h2>Add Task</h2></div>
 
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type='text/javascript' src="js/kanban.js"></script>
+        <script type='text/javascript' src= {% static js/kanban.js %} </script>
       </div>
     </body>
 </html>
