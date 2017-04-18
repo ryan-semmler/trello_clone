@@ -9,19 +9,20 @@
     </head>
     <body>
         <navbar id="nav">
-          <a href="/"><h2>KanBan</h2></a>
+          <a href="/"><h2 class="u-pull-left">KanBan</h2></a>
           {% if user.is_authenticated %}
-
-          <li style='float: right'><a id='logout' href='/logout'><img src="{% static 'img/logout.png' %}" alt="Logout"/> Logout </a></li>
-          <li style='float: right'><a href="/profile" ><img src="{% static 'img/user.png'%}" alt='User'/>  Welcome, {{user}} </a></li>
-
+          <ul>
+          <li><a href="/profile" ><img src="{% static 'img/user.png'%}" alt='User'/>  Welcome, {{user}} </a></li>
+          <li><a id='logout' href='/logout'><img src="{% static 'img/logout.png' %}" alt="Logout"/> Logout </a></li>
+          </ul>
 
           {% else %}
-
-          <li style='float: right'><img src="{% static 'img/login.png' %}" alt="login"/>
+        <ul class="u-pull-right">
+          <li><img src="{% static 'img/login.png' %}" alt="login"/>
               <form method="post" action="{% url 'login' %}">
               {% include 'registration/login.html'%}</li>
-          <li style='float: right'><a id='signup' href='/signup'><img src="{% static 'img/new-user.png' %}" alt="signup"/> Signup </a></li>
+          <li><a id='signup' href='/signup'><img src="{% static 'img/new-user.png' %}" alt="signup"/> Signup </a></li>
+        </ul>
           {% endif %}
         </navbar>
         <div class='container'>
