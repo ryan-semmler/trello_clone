@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Add Task</title>
-    </head>
-    <body>
-      {% if user.is_authenticated %}
-        <div>
-            <form method="POST">
-                 dum dum dum dum
-                    {% csrf_token %}
-                    {{ task_form.as_p }}
-              <input type="submit" value="Submit"/>
-            </form>
-        </div>
-      {% else %}
-        <a href='login.html'>You have to be logged in for that.</a>
-      {% endif %}
-</body>
-</html>
+
+  {% if user.is_authenticated %}
+        <form method="POST">
+                {% csrf_token %}
+                {{ task_form.as_p }}
+          <input type="submit" value="Submit"/>
+        </form>
+  {% else %}
+    <a href='/accounts/login.html'>You have to be logged in for that.</a>
+  {% endif %}

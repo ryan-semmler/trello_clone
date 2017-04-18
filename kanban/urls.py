@@ -25,6 +25,6 @@ router.register(r'/tasks', views.TaskViewSet)
 urlpatterns = [
     url(r'^', include('tasks.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^accounts/login', include('django.contrib.auth.urls')),
     url(r'^api/', include(router.urls)),
 ]

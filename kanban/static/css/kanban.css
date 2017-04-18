@@ -29,6 +29,7 @@
     margin: 0 auto;
 }
 
-.editTask img {
-    padding-left: 5.5%;
+#allTasks img {
+    display: inline;
+    margin-left: 1.5%;
 }

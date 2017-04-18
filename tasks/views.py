@@ -15,6 +15,11 @@ class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all().order_by('status')
     serializer_class = TaskSerializer
 
+def login(request):
+    
+    return render(request, "registration/login.html")
+
+
 @api_view(['GET'])
 def view_all_tasks(request):
     ''' view all tasks '''

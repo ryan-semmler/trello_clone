@@ -8,13 +8,14 @@
     </div>
     <div id="oneTask"></div>
     <div id="editTask"></div>
+
     <div id="addTask">
         <h2>Add Task</h2>
+        {% include 'tasks/create.html'%}
     </div>
   </div>
   {% endblock %}
 
-  {% block javascript %}   <!--why you no connect!!?!?-->
-  <script type='text/javascript' src="{% static 'js/viewall.js' %}"></script>
+  {% block javascript %}
   <script type='text/javascript' src="{% static 'js/kanban.js' %}"></script>
   {% endblock %}

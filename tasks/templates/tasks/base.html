@@ -8,16 +8,31 @@
         <link rel=stylesheet type="text/css" href= "{% static 'css/kanban.css'%}"/>
     </head>
     <body>
-        <navbar id="nav"><a href="/"><h2>KanBan</h2></a></navbar>
+        <navbar id="nav">
+          <a href="/"><h2>KanBan</h2></a>
+          {% if user.is_authenticated %}
+
+          <li style='float: right'><a id='logout' href='/logout'><img src="{% static 'img/logout.png' %}" alt="Logout"/> Logout </a></li>
+          <li style='float: right'><a href="/profile" ><img src="{% static 'img/user.png'%}" alt='User'/>  Welcome, {{user}} </a></li>
+
+
+          {% else %}
+
+          <li style='float: right'><img src="{% static 'img/login.png' %}" alt="login"/>
+              <form method="post" action="{% url 'login' %}">
+              {% csrf_token %}{{ form.username.label_tag }}{{ form.username }}</td><td>{{ form.password.label_tag }}{{ form.password }}</li>
+          <li style='float: right'><a id='signup' href='/signup'><img src="{% static 'img/new-user.png' %}" alt="signup"/> Signup </a></li>
+          {% endif %}
+        </navbar>
         <div class='container'>
         {% block content%}
         {% endblock %}
-    </div>
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  {% block javascript %}
-  {% endblock %}
+        </div>
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        {% block javascript %}
+        {% endblock %}
     </body>
 </html>
