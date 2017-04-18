@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework import routers
+from tasks import views
+
+router = routers.DefaultRouter()
+router.register(r'/tasks', views.TaskViewSet)
 
 
 urlpatterns = [
     url(r'^', include('tasks.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^api/', include(router.urls)),
 ]

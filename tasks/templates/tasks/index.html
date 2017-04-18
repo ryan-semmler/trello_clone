@@ -1,14 +1,21 @@
-{% extends 'base.html' %}
+{% extends 'tasks/base.html' %}
+{% block extraheader %}
+{% load static %}
+{% endblock %}
 {% block content %}
   <div class='row'>
-    <div id="allTasks"><h2>View All</h2>
+    <div id="allTasks">
+        <h2>View All</h2>
+        <div id='tasklist'></div>
     </div>
-      <div id='tasklist'>
-
-      </div>
-
     <div id="oneTask"></div>
     <div id="editTask"></div>
-    <div id="addTask"><h2>Add Task</h2></div>
+    <div id="addTask">
+        <h2>Add Task</h2>
+    </div>
   </div>
+  {% endblock %}
+  
+  {% block javacsript %}   <!--why you no connect!!?!?-->
+  <script type='text/javascript' src="{% static 'js/kanban.js' %}"></script>
   {% endblock %}

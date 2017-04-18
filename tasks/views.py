@@ -6,10 +6,14 @@ from rest_framework.response import Response
 from .models import Task
 from .serializers import TaskSerializer
 from .forms import TaskForm
-from django.template import loader
-from django.http import HttpRequest
+from rest_framework import viewsets
 
 # Create your views here.
+
+
+class TaskViewSet(viewsets.ModelViewSet):
+    queryset = Task.objects.all().order_by('status')
+    serializer_class = TaskSerializer
 
 @api_view(['GET'])
 def view_all_tasks(request):
