@@ -7,7 +7,7 @@ from .models import Task
 from .serializers import TaskSerializer
 from .forms import TaskForm, UserForm
 from rest_framework import viewsets
-import requests
+
 
 # Create your views here.
 
@@ -17,7 +17,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
 
 def login(request):
-    f = UserForm
+    f = UserForm(request.POST)
     return render(request, "registration/login.html", {'form': f})
 
 
@@ -61,9 +61,16 @@ def delete_task(request, detail_id):
 
 @login_required
 def new_task(request):
+
+
+    return render(request, "tasks/create.html", {"task_form": new_task, "user": user, "test": "test"})
+
+
+def index(request):
+    '''UI homepage'''
     '''loads form to create a new task'''
+    user = request.user
     if request.method == 'POST':
-        user = request.user
         new_task = TaskForm(request.POST)
         if new_task.is_valid():
             new_task.save(commit=False)
@@ -72,13 +79,7 @@ def new_task(request):
             return redirect("tasks")
     else:
         new_task = TaskForm()
-
-    return render(request, "tasks/create.html", {"task_form": new_task, "user": user})
-
-
-def index(request):
-    '''UI homepage'''
-    return render(request, "tasks/index.html")
+    return render(request, "tasks/index.html", {'add_new': new_task, 'user': user, "test": 'test'})
 
 
 @api_view(['POST'])
