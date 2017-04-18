@@ -5,8 +5,9 @@ from django.contrib.auth.decorators import login_required
 from rest_framework.response import Response
 from .models import Task
 from .serializers import TaskSerializer
-from .forms import TaskForm
+from .forms import TaskForm, UserForm
 from rest_framework import viewsets
+import requests
 
 # Create your views here.
 
@@ -16,8 +17,8 @@ class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
 
 def login(request):
-    
-    return render(request, "registration/login.html")
+    f = UserForm
+    return render(request, "registration/login.html", {'form': f})
 
 
 @api_view(['GET'])
@@ -62,6 +63,7 @@ def delete_task(request, detail_id):
 def new_task(request):
     '''loads form to create a new task'''
     if request.method == 'POST':
+        user = request.user
         new_task = TaskForm(request.POST)
         if new_task.is_valid():
             new_task.save(commit=False)
@@ -71,7 +73,7 @@ def new_task(request):
     else:
         new_task = TaskForm()
 
-    return render(request, "tasks/create.html", {"task_form": new_task})
+    return render(request, "tasks/create.html", {"task_form": new_task, "user": user})
 
 
 def index(request):

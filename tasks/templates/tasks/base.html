@@ -20,7 +20,7 @@
 
           <li style='float: right'><img src="{% static 'img/login.png' %}" alt="login"/>
               <form method="post" action="{% url 'login' %}">
-              {% csrf_token %}{{ form.username.label_tag }}{{ form.username }}</td><td>{{ form.password.label_tag }}{{ form.password }}</li>
+              {% include 'registration/login.html'%}</li>
           <li style='float: right'><a id='signup' href='/signup'><img src="{% static 'img/new-user.png' %}" alt="signup"/> Signup </a></li>
           {% endif %}
         </navbar>
