@@ -1,9 +1,5 @@
 //js file for kanban hw
 
-$('<body>').click(function(event) {
-  console.log("hi");
-})
-
 $('#allTasks').click(function(event) {
     event.preventDefault();
     console.log("HI");
@@ -15,17 +11,24 @@ $('#allTasks').click(function(event) {
          console.log("success");
 
          $list = $('<ol>');
-
+         $listItem = $('<li>')
          for(var i = 0; i < result.length; i++) {
-            console.log(result[i]);
-            $listItem = $('<li>');
-            $listItem.html(result[i].title);
+            //just the title
+            $itemTitle = result[i].title;
+            //task details.
+            $itemStatus = result[i].status;
+            $itemPriority = result[i].priority;
+            $task = $itemTitle + " [" + $itemStatus.slice(3, -1) + "] [" + $itemPriority.slice(3,-1) + ']'
+            $listItem.append($task).append($('<img class=\'editTask\' src="/static/img/edit.png"/>')); // a
             $list.append($listItem);
          }
+
 
       //  $('#allTasks').empty();
     //    $('#allTasks').append('<h2>All Tasks</h2>');
     $('#tasklist').append($list);
+
   }
-})
+});
+$('#allTasks').off('click')
 });

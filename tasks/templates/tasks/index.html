@@ -1,7 +1,5 @@
 {% extends 'tasks/base.html' %}
-{% block extraheader %}
 {% load static %}
-{% endblock %}
 {% block content %}
   <div class='row'>
     <div id="allTasks">
@@ -15,7 +13,8 @@
     </div>
   </div>
   {% endblock %}
-  
-  {% block javacsript %}   <!--why you no connect!!?!?-->
+
+  {% block javascript %}   <!--why you no connect!!?!?-->
+  <script type='text/javascript' src="{% static 'js/viewall.js' %}"></script>
   <script type='text/javascript' src="{% static 'js/kanban.js' %}"></script>
   {% endblock %}
