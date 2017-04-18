@@ -1,0 +1,5 @@
+.direnv
+.envrc
+__pycache__
+kanban/__pycache__
+tasks/__pycache__
