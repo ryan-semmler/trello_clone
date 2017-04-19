@@ -14,7 +14,7 @@
         <h2>Add Task</h2>
         <div id='taskForm'>
         <form method='POST' id="newTaskForm">
-        {{ csrf_token }}
+        {% csrf_token %}
         {{ add_new }}
         <input type="submit" value="Add Task"/>
     </form>
