@@ -6,13 +6,18 @@
         <h2>View All</h2>
         <div id='tasklist'></div>
     </div>
-    <div id="oneTask"></div>
-    <div id="editTask"></div>
+    <div id="editTask">
+
+    </div>
 
     <div id="addTask">
         <h2>Add Task</h2>
         <div id='taskForm'>
+        <form method='POST' id="newTaskForm">
+        {{ csrf_token }}
         {{ add_new }}
+        <input type="submit" value="Add Task"/>
+    </form>
     </div>
     </div>
   </div>

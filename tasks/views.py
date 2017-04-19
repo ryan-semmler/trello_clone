@@ -30,8 +30,8 @@ def view_all_tasks(request):
     return Response(serializer.data)
 
 
-@api_view(['GET'])
-def view_task_detail(request, detail_id):
+@api_view(['PUT'])
+def edit_task_detail(request, detail_id):
     '''view all details for one task'''
     specific_task = Task.objects.get(id=detail_id)
     serializer = TaskSerializer(specific_task, many=False)
@@ -48,7 +48,7 @@ def user_detail(request, user_id):
     return Response(serializer.data)
 
 
-@api_view(['GET'])
+@api_view(['DELETE'])
 @login_required
 def delete_task(request, detail_id):
     '''delete a single task'''
@@ -58,7 +58,7 @@ def delete_task(request, detail_id):
     else:
         return "error"
 
-
+#
 @login_required
 def new_task(request):
 
