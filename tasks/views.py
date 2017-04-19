@@ -111,3 +111,10 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+
+def edit(request, task_id):
+    # t = Task.objects.get(id=task_id)
+    # print(t)
+    form = TaskForm()
+    return render(request, 'tasks/edit.html', {'form': form})

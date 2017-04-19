@@ -1,0 +1,16 @@
+{% extends 'tasks/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="row">
+<form method='PUT' id="editForm">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Edit Task"/>
+</form>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/edit.js' %}"></script>
+{% endblock %}
