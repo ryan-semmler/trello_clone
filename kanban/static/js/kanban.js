@@ -25,18 +25,19 @@ $('#allTasks').click(function(event) {
             $list.append($listItem);
         }
         //add list to div
+        $('#allTasks').empty();
         $('#allTasks').append($list);
 
     }
 });
-$('#allTasks').off('click')
+
 });
 
 //function to delete a task on click of the rubbish bin
-$('.delTask').click(function(event){
+$('#allTasks').on('click', '.delTask', function(event){
     $parentLi = $('.delTask').parent();
     $liId = $parentLi.attr('id').slice(-1);
-    console.log($liId);
+    console.log('del');
 
     $.ajax({
         method: 'DELETE',
@@ -44,15 +45,14 @@ $('.delTask').click(function(event){
         success: function(results) {
             console.log('deleted');
         }
-    })
-});
+      })
+    });
 
 //function to edit a task on click of pencil
-$('.editTask').click(function(event) {
-    event.preventDefault();
+$('#allTasks').on('click', ".editTask", function(event) {
     $parentLi = $('.editTask').parent();
     $liId = $parentLi.attr('id').slice(-1);
-    console.log($liId);
+    console.log('edit');
 
     $.ajax({
         method: 'PUT',
