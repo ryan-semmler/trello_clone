@@ -3,9 +3,16 @@
 
 {% block content %}
 <div class="row">
+<<<<<<< HEAD
 <form method='PUT'>
   {% csrf_token %}
   {{ form.as_p}}
+=======
+<form method='PUT' id="editForm">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Edit Task"/>
+>>>>>>> f8845d079d1b568987913f541c958f178724f7ca
 </form>
 </div>
 {% endblock %}
