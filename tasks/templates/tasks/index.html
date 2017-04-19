@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
   <div class='row'>
+      <div class="six columns">
       <h2 id=viewAll>View All</h2>
     <div id="allTasks"><img src="{% static 'img/down.png'%}" alt="view all"/>
     </div>
@@ -15,10 +16,14 @@
     </form>
     </div>
     </div>
+</div>
+<div class="six columns">
     <div id="editTask"></div>
   </div>
+ </div>
   {% endblock %}
 
   {% block javascript %}
   <script type='text/javascript' src="{% static 'js/kanban.js' %}"></script>
+
   {% endblock %}

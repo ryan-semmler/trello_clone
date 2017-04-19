@@ -43,3 +43,9 @@
 #tasks {
     border: 1px solid black;
 }
+
+#editTask {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
