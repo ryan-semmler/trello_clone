@@ -7,10 +7,10 @@
 
 #nav {
     background: ##39424E;
-    display: flex;
+    /*display: flex;
     justify-content: flex-start;
     flex-direction: row;
-    align-items: stretch;
+    align-items: stretch;*/
     margin: 1.5% 1.5% 1.5% 1.5%;
     width: 100%;
     font-size: 35px;
@@ -22,7 +22,7 @@
 }
 
 #nav a:hover {
-    border-bottom: 2px solid #39244E;
+    border-bottom: 3px solid #39244E;
 }
 
 #nav h2 {
@@ -30,12 +30,15 @@
 }
 
 #nav ul {
-    display: flex;
-    justify-content: space-between;;
-    flex-direction: row;
+    display: inline;
+    float: right;
     list-style-type: none;
 }
 #allTasks img {
     display: inline;
     margin-left: 1.5%;
+}
+
+#tasks {
+    border: 1px solid black;
 }

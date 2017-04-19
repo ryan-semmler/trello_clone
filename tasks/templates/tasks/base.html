@@ -9,7 +9,7 @@
     </head>
     <body>
         <navbar id="nav">
-          <a href="/"><h2 class="u-pull-left">KanBan</h2></a>
+          <h2 class="u-pull-left"><a href="/">KanBan</a></h2>
           {% if user.is_authenticated %}
           <ul>
           <li><a href="/profile" ><img src="{% static 'img/user.png'%}" alt='User'/>  Welcome, {{user}} </a></li>
@@ -17,10 +17,8 @@
           </ul>
 
           {% else %}
-        <ul class="u-pull-right">
-          <li><img src="{% static 'img/login.png' %}" alt="login"/>
-              <form method="post" action="{% url 'login' %}">
-              {% include 'registration/login.html'%}</li>
+        <ul>
+          <li><img src="{% static 'img/login.png' %}" alt="login"/><a href="login"> Login </a></li>
           <li><a id='signup' href='/signup'><img src="{% static 'img/new-user.png' %}" alt="signup"/> Signup </a></li>
         </ul>
           {% endif %}
