@@ -7,6 +7,8 @@ from .models import Task
 from .serializers import TaskSerializer
 from .forms import TaskForm, UserForm
 from rest_framework import viewsets
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate
 
 
 # Create your views here.
@@ -15,6 +17,7 @@ from rest_framework import viewsets
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all().order_by('status')
     serializer_class = TaskSerializer
+
 
 def login(request):
     f = UserForm(request.POST)
@@ -93,3 +96,18 @@ def add_task_to_DB(request, form_info):
         return JsonResponse(serializer.data)
 
     return JsonResponse(serializer.errors, status=400)
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request)
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
