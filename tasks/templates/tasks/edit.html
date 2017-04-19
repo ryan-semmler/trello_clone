@@ -13,4 +13,8 @@
 
 {% block javascript %}
 <script src="{% static 'js/edit.js' %}"></script>
+<script type="text/javascript">
+// using jQuery
+var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+</script>
 {% endblock %}

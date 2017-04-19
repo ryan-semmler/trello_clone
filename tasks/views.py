@@ -57,7 +57,7 @@ def delete_task(request, detail_id):
     '''delete a single task'''
     trash_task = Task.objects.get(id=detail_id)
     if trash_task.delete():
-        return redirect('tasks')
+        return redirect('/')
     else:
         return "error"
 
