@@ -4,14 +4,15 @@
 // view all
 $('#allTasks').click(function(event) {
     event.preventDefault();
-    $list = $('<ol id="tasks">');
+    $list = $('<ol>');
 
   $.ajax({
       type: "GET",
       url: 'api/tasks/',
       success: function(result) {
-         $listItem = $('<li>');
          for(var i = 0; i < result.length; i++) {
+             $listItem = $('<li>');
+
             //just the title
             $listItem.attr('id', 'li_' + result[i].id)
             $itemTitle = result[i].title;
@@ -26,8 +27,9 @@ $('#allTasks').click(function(event) {
             // $listItem.append("</li>");
             console.log($listItem)
             $list.append($listItem);
-            $('#allTasks').append($list);
         }
+        $('#allTasks').append($list);
+
     }
 });
 

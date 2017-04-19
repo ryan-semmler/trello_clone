@@ -1,9 +1,9 @@
-
-.container {
+/* css file for kanban project*/
+/*.container {
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
-}
+}*/
 
 #nav {
     background: ##39424E;
@@ -34,6 +34,7 @@
     float: right;
     list-style-type: none;
 }
+
 #allTasks img {
     display: inline;
     margin-left: 1.5%;
