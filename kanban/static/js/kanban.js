@@ -112,7 +112,7 @@ $('#allTasks').on('click', ".editTask", function(event) {
             data: $form,
             success: function(results) {
                 console.log("editted");
-                $success = $('<h2 id="success">Task Added!</h2>');s
+                $success = $('<h2 id="success">Task Added!</h2>');
             }
         })
     });

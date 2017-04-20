@@ -4,12 +4,13 @@
     <head>
         <meta charset="utf-8">
         <title>Kanban</title>
+        <link rel="shortcut icon" href="{% static 'img/k.png' %}"/>
         <link rel=stylesheet type="text/css" href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'/>
         <link rel=stylesheet type="text/css" href= "{% static 'css/kanban.css'%}"/>
     </head>
     <body>
         <navbar id="nav">
-          <h2 class="u-pull-left"><a href="/">KanBan</a></h2>
+          <h2 class="u-pull-left"><a href="/"><img src="{% static 'img/kanban.png'%}"/>KanBan</a></h2>
           {% if user.is_authenticated %}
           <ul>
           <li><a href="/profile" ><img src="{% static 'img/user.png'%}" alt='User'/>  Welcome, {{user}} </a></li>
