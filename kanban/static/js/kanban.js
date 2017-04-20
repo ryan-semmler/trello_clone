@@ -1,8 +1,9 @@
-//js file for kanban hw
+//js file for kanban
+//will Warren
+//ryan semmler
 
 //stuff i need later
 function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
 
@@ -21,10 +22,15 @@ $.ajaxSetup({
 let STATUS_CHOICE = ['<option value="not started"> 1, not started</option>', '<option value="in progress"> 2, in progress </option>', '<option value="completed"> 3, completed</option>']
 let PRIORITY_CHOICE = ['<option value="low priority">1, low priority</option>', '<option value="medium-rare priority">2, medium-rare priority</option>', '<option value="medium priority">3, medium priority</option>', '<option value="medium priority">4, medium-well priority</option>', '<option value="medium priority">5, top priority</option>']
 
+//view add new form
+$('#addTask').on('click', function(event) {
+    console.log("hi");
+    $('#newTaskForm').fadeIn();
+});
 // view all
 $('#allTasks').click(function(event) {
     event.preventDefault();
-    $list = $('<ol>');
+    $list = $('<ol class="list_decoration">');
 
   $.ajax({
       type: "GET",
@@ -36,11 +42,10 @@ $('#allTasks').click(function(event) {
             $listItem.attr('id', 'li_' + result[i].id)
             $itemTitle = result[i].title;
             //task details.
-            $itemStatus = result[i].status;
-            $itemPriority = result[i].priority;
-            $task = $itemTitle + " [" + $itemStatus.slice(4, -1) + "] [" + $itemPriority.slice(4,-1) + ']'
+            //$itemStatus = result[i].status;         //where did this go?
+            //$itemPriority = result[i].priority;
             //add task to list item
-            $listItem.append($task).append('<img class=editTask src="static/img/edit.png"/>').append('<img class=delTask src="/static/img/garbage.png"/></li>');
+            $listItem.append($itemTitle).append('<img class=editTask src="static/img/edit.png"/>').append('<img class=delTask src="/static/img/garbage.png"/></li>');
             //add list item to list
             $list.append($listItem);
         }
@@ -49,8 +54,8 @@ $('#allTasks').click(function(event) {
         $('#allTasks').append($list);
     }
 });
-
 });
+
 
 //function to delete a task on click of the rubbish bin
 $('#allTasks').on('click', '.delTask', function(event){
@@ -65,6 +70,7 @@ $('#allTasks').on('click', '.delTask', function(event){
             console.log('deleted');
         }
       })
+
     });
 
 //function to edit a task on click of pencil
@@ -106,8 +112,12 @@ $('#allTasks').on('click', ".editTask", function(event) {
             data: $form,
             success: function(results) {
                 console.log("editted");
+                $success = $('<h2 id="success">Task Added!</h2>');s
             }
         })
     });
 
 });
+
+//add success or failure message for adding a task
+$('')
