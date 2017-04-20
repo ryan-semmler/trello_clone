@@ -9,21 +9,21 @@
         <link rel=stylesheet type="text/css" href= "{% static 'css/kanban.css'%}"/>
     </head>
     <body>
-        <navbar id="nav">
-          <h2 class="u-pull-left"><a href="/"><img src="{% static 'img/kanban.png'%}"/>KanBan</a></h2>
-          {% if user.is_authenticated %}
+        <div id="nav">
           <ul>
+          <li><h2><a href="/"><img src="{% static 'img/kanban.png'%}"/>KanBan</a></h2></li>
+          {% if user.is_authenticated %}
           <li><a href="/profile" ><img src="{% static 'img/user.png'%}" alt='User'/>  Welcome, {{user}} </a></li>
           <li><a id='logout' href='/logout'><img src="{% static 'img/logout.png' %}" alt="Logout"/> Logout </a></li>
           </ul>
-
+        </div>
           {% else %}
-        <ul>
           <li><img src="{% static 'img/login.png' %}" alt="login"/><a href="login"> Login </a></li>
           <li><a id='signup' href='/signup'><img src="{% static 'img/new-user.png' %}" alt="signup"/> Signup </a></li>
         </ul>
+      </div>
           {% endif %}
-        </navbar>
+        </div>
         <div class='container'>
         {% block content%}
         {% endblock %}
